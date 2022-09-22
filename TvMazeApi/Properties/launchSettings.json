@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "tvmaze_api": {
+    "TvMazeApi": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -8,7 +8,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7104;http://localhost:5104"
+      "applicationUrl": "https://localhost:7077;http://localhost:5077"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -31,8 +31,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:23495",
-      "sslPort": 44334
+      "applicationUrl": "http://localhost:17673",
+      "sslPort": 44325
     }
   }
 }

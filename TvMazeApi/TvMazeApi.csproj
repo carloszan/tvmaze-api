@@ -4,10 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>tvmaze_api</RootNamespace>
-    <UserSecretsId>b9bd2ab1-6fda-4811-ad88-8a64afea5272</UserSecretsId>
+    <UserSecretsId>d1116a11-213e-4669-8552-0bc4560f02a1</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
