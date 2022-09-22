@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TvMazeApi.Controllers.Dto;
+using TvMazeApi.Repositories;
 
 namespace TvMazeApi.Controllers
 {
@@ -8,17 +9,39 @@ namespace TvMazeApi.Controllers
   public class ShowController
   {
     private readonly ILogger<ShowController> _logger;
+    private readonly IShowRepository _showRepository;
 
-    public ShowController(ILogger<ShowController> logger)
+    public ShowController(
+      ILogger<ShowController> logger,
+      IShowRepository showRepository
+    )
     {
       _logger = logger; 
+      _showRepository = showRepository;
     }
 
     [HttpGet]
-    public IEnumerable<ShowDto> Get()
+    public async Task<IEnumerable<ShowDto>> Get([FromQuery(Name = "page")] string page)
     {
-      var cast = new List<ActorDto>() { new ActorDto { Name = "Carlos", Id = 1, Birthday = new DateTime(1999,1,1) } };
-      return new List<ShowDto>() { new ShowDto() { Name = "Game of thrones", Id = 1, Cast = cast } };
+      var id = 250 * Int32.Parse(page) - 250;
+      var shows = await _showRepository.GetNext250DocumentsByIdAsync(id);
+
+      // Uggly mapping objects but as
+      // I don't want to install any external dependencies, it's ok!
+      var showsDto = shows
+        .Select(show => new ShowDto
+        {
+          Id = show.Id,
+          Name = show.Name,
+          Cast = show.Cast.Select(cast => new ActorDto
+          {
+            Id = cast.Id,
+            Name = cast.Name,
+            Birthday = cast.Birthday
+          }).ToList(),
+        }).ToList();
+
+      return showsDto;
     }
   }
 }
