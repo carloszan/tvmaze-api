@@ -16,12 +16,19 @@ namespace TvMazeApi.Repositories
       _showCollection = database.GetCollection<ShowEntity>(collectionName);
     }
 
-    public async Task<List<ShowEntity>> GetNext250DocumentsByIdAsync(int page)
+    public async Task<List<ShowEntity>> GetNext250DocumentsByIdAsync(int id)
     {
-      //var filter = Builders<ShowEntity>.Filter.And();
+      var ids = new List<int>();
 
-      //return await _showCollection.FindAsync(filter, options);
-      throw new NotImplementedException();
+      for (var i = id; i < id + 250; i++)
+      {
+        ids.Add(i);
+      }
+
+      var shows = (await _showCollection
+        .FindAsync(show => ids.Contains(show.Id))).ToList();
+
+      return shows;
     }
   }
 }

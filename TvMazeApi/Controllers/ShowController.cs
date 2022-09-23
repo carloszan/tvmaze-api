@@ -23,7 +23,7 @@ namespace TvMazeApi.Controllers
     [HttpGet]
     public async Task<IEnumerable<ShowDto>> Get([FromQuery(Name = "page")] string page)
     {
-      var id = 250 * Int32.Parse(page) - 250;
+      var id = 250 * Int32.Parse(page);
       var shows = await _showRepository.GetNext250DocumentsByIdAsync(id);
 
       // Uggly mapping objects but as
