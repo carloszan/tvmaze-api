@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["TvMazeApi/TvMazeApi.csproj", "TvMazeApi/"]
-RUN dotnet restore "TvMazeApi/TvMazeApi.csproj"
+COPY ["TvMaze.Api/TvMazeApi.csproj", "TvMazeApi/"]
+RUN dotnet restore "TvMaze.Api/TvMazeApi.csproj"
 COPY . .
-WORKDIR "/src/TvMazeApi"
+WORKDIR "/src/TvMaze.Api"
 RUN dotnet build "TvMazeApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
