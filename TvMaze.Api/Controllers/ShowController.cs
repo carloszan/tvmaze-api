@@ -54,7 +54,7 @@ namespace TvMaze.Api.Controllers
         }).ToList();
 
       // Caching response for 12 hours
-      await _redis.SetAsync(id.ToString(), showsDto, new TimeSpan(12, 0, 0));
+      await _redis.SetAsync(id.ToString(), showsDto, new TimeSpan(24, 0, 0));
 
       return showsDto;
     }

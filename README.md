@@ -18,12 +18,22 @@ dotnet run
 dotnet test
 ```
 
+# About
+
+This API responsability is to deliver data that is stored inside a mongodb database.
+
+All the requests are stored in a redis database with a lifespan of 24 hours. This is important because looking up in the database is costly.
+
+I decided to use 24 hours because TvMazeAPI show request has a 24 hours caching, as well.
+
 ### Todo
 
-- [ ] Redis caching
+- [ ] k8s
+- [ ] github actions
 
 ### In Progress
 
-- [ ] ShowController
-
 ### Done ✓
+
+- [x] Redis caching
+- [x] ShowController
