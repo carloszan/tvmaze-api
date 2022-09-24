@@ -24,6 +24,7 @@ namespace TvMazeTests.Repositories
       // Assert
       Assert.That(shows.FirstOrDefault().Id, Is.EqualTo(lastId));
     }
+
     private static Mock<IMongoClient> MongoClientFactory(List<ShowEntity> fakeShows)
     {
       var showCollection = new Mock<IMongoCollection<ShowEntity>>();
