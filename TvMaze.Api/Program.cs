@@ -1,6 +1,7 @@
 using MongoDB.Driver;
+using StackExchange.Redis;
+using TvMaze.Api;
 using TvMaze.Api.Repositories;
-using TvMazeWorker;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,10 @@ builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
   var settings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
   return new MongoClient(settings.ConnectionString);
 });
+
+var redisSettings = builder.Configuration.GetSection(nameof(RedisDbSettings)).Get<RedisDbSettings>();
+var multiplexer = ConnectionMultiplexer.Connect(redisSettings.ConnectionString);
+builder.Services.AddSingleton<IConnectionMultiplexer>(multiplexer);
 
 builder.Services.AddSingleton<IShowRepository, ShowRepository>();
 

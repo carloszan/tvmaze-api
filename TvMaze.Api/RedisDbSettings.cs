@@ -1,6 +1,6 @@
 ﻿namespace TvMaze.Api
 {
-  public class MongoDbSettings
+  public class RedisDbSettings
   {
     public string ConnectionString { get; set; }
   }
