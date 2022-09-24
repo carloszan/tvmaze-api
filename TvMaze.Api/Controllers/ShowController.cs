@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TvMazeApi.Controllers.Dto;
-using TvMazeApi.Repositories;
+using TvMaze.Api.Controllers.Dto;
+using TvMaze.Api.Repositories;
 
-namespace TvMazeApi.Controllers
+namespace TvMaze.Api.Controllers
 {
   [ApiController]
   [Route("[controller]")]
@@ -16,14 +16,14 @@ namespace TvMazeApi.Controllers
       IShowRepository showRepository
     )
     {
-      _logger = logger; 
+      _logger = logger;
       _showRepository = showRepository;
     }
 
-    [HttpGet]
-    public async Task<IEnumerable<ShowDto>> Get([FromQuery(Name = "page")] string page)
+    [HttpGet("/shows")]
+    public async Task<IEnumerable<ShowDto>> Get([FromQuery] GetParamsDto getParams)
     {
-      var id = 250 * Int32.Parse(page);
+      var id = 250 * Int32.Parse(getParams.Page);
       var shows = await _showRepository.GetNext250DocumentsByIdAsync(id);
 
       // Uggly mapping objects but as

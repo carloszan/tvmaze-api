@@ -1,4 +1,4 @@
-﻿namespace TvMazeApi.Controllers.Dto
+﻿namespace TvMaze.Api.Controllers.Dto
 {
   public class ActorDto
   {

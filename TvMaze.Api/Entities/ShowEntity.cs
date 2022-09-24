@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace TvMazeApi.Entities
+namespace TvMaze.Api.Entities
 {
   public class Actor
   {

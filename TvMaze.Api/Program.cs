@@ -1,4 +1,5 @@
 using MongoDB.Driver;
+using TvMaze.Api.Repositories;
 using TvMazeWorker;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,11 +13,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IMongoClient>(serviceProvider =>
 {
-  var configuration = builder.Configuration.GetSection(nameof(MongoDbSettings));
-  var settings = configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+  var settings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
   return new MongoClient(settings.ConnectionString);
 });
 
+builder.Services.AddSingleton<IShowRepository, ShowRepository>();
 
 var app = builder.Build();
 

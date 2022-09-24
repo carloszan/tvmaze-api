@@ -1,7 +1,7 @@
 ﻿using MongoDB.Driver;
-using TvMazeApi.Entities;
+using TvMaze.Api.Entities;
 
-namespace TvMazeApi.Repositories
+namespace TvMaze.Api.Repositories
 {
   public class ShowRepository : IShowRepository
   {

@@ -1,7 +1,7 @@
 ﻿using MongoDB.Driver;
 using Moq;
-using TvMazeApi.Entities;
-using TvMazeApi.Repositories;
+using TvMaze.Api.Entities;
+using TvMaze.Api.Repositories;
 
 namespace TvMazeTests.Repositories
 {

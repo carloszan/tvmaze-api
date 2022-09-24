@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq;
-using TvMazeApi.Controllers;
-using TvMazeApi.Entities;
-using TvMazeApi.Repositories;
+using TvMaze.Api.Controllers;
+using TvMaze.Api.Entities;
+using TvMaze.Api.Repositories;
 
 namespace TvMaze.Tests.Controllers
 {
@@ -24,11 +24,11 @@ namespace TvMaze.Tests.Controllers
         .ReturnsAsync(fakeShows);
 
       var showController = new ShowController(
-        loggerMock.Object, 
+        loggerMock.Object,
         showRepositoryMock.Object);
 
       // Act
-      var shows = await showController.Get("0");
+      var shows = await showController.Get(new Api.Controllers.Dto.GetParamsDto());
 
       // Assert
       Assert.That(shows.FirstOrDefault().Id, Is.EqualTo(lastId));

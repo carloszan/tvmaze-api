@@ -1,6 +1,6 @@
-﻿using TvMazeApi.Entities;
+﻿using TvMaze.Api.Entities;
 
-namespace TvMazeApi.Repositories
+namespace TvMaze.Api.Repositories
 {
   public interface IShowRepository
   {
