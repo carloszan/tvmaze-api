@@ -23,6 +23,6 @@ namespace TvMaze.Api.Entities
     public string Name { get; set; }
 
     [BsonElement("cast")]
-    public List<Actor> Cast { get; set; }
+    public List<Actor> Cast { get; set; } = new List<Actor>();
   }
 }

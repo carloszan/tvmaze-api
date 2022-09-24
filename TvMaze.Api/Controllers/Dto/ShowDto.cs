@@ -16,6 +16,6 @@
 
     public string Name { get; set; }
 
-    public List<ActorDto> Cast { get; set; }
+    public List<ActorDto>? Cast { get; set; } = new List<ActorDto>();
   }
 }

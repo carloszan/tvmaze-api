@@ -33,7 +33,7 @@ namespace TvMaze.Api.Controllers
         {
           Id = show.Id,
           Name = show.Name,
-          Cast = show.Cast.Select(cast => new ActorDto
+          Cast = show.Cast?.Select(cast => new ActorDto
           {
             Id = cast.Id,
             Name = cast.Name,
