@@ -29,11 +29,11 @@ I decided to use 24 hours because TvMazeAPI show request has a 24 hours caching,
 ### Todo
 
 - [ ] k8s
-- [ ] github actions
 
 ### In Progress
 
 ### Done ✓
 
+- [x] github actions
 - [x] Redis caching
 - [x] ShowController
