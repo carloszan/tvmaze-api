@@ -71,7 +71,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
-          file: ./TvMaze.Worker/Dockerfile
+          file: ./TvMaze.Api/Dockerfile
           platforms: linux/amd64
           push: true
           tags: ${{ steps.prep.outputs.tags }}
