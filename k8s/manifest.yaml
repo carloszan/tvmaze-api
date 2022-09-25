@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tvmaze-api
+spec:
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    app: tvmaze-api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tvmaze-api
+  labels:
+    app: tvmaze-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tvmaze-api
+  template:
+    metadata:
+      labels:
+        app: tvmaze-api
+    spec:
+      containers:
+        - name: tvmaze-api
+          image: carloszan/tvmaze-api:v3
+          ports:
+            - containerPort: 5000

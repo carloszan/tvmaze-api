@@ -26,14 +26,15 @@ All the requests are stored in a redis database with a lifespan of 24 hours. Thi
 
 I decided to use 24 hours because TvMazeAPI show request has a 24 hours caching, as well.
 
-### Todo
+## Kanban
 
-- [ ] k8s
+### Todo
 
 ### In Progress
 
 ### Done ✓
 
+- [x] k8s
 - [x] github actions
 - [x] Redis caching
 - [x] ShowController
